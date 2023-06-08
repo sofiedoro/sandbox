@@ -1,0 +1,153 @@
+<!DOCtype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frukt Slider Design</title>
+<link rel="stylesheet" href="style2.css"> 
+<link rel="stylesheet" href="reset.css">
+<link href='https://fonts.googleapis.com/css?family=Kalam' rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" > 
+</head>
+<body>
+<div class="container">
+ <div class="swiper">
+ <div class="swiper-wrapper">
+ <div class="swiper-slide"><img src="assets/blodappelsin_02.webp" alt="blodappelsen"></div>
+ <div class="swiper-slide"><img src="assets/cantaloupe-halv-langs.webp" alt="melondeltito"></div>
+ <div class="swiper-slide"><img src="assets/braeburn_j3a5114.webp" alt="epledeltito"></div>
+ <div class="swiper-slide"><img src="assets/ambrosia-singel2.webp" alt="eple"></div>
+</div>  
+ <div class="swiper-pagination"></div>
+ <div class="swiper-button-prev"></div>
+ <div class="swiper-button-next"></div>
+ </div>
+<div class="swiper">
+  
+<div class="swiper-wrapper">
+<div class="swiper-slide"><img src="assets/midnight-beauty-klase.webp" alt="klasemeddruer"></div>
+<div class="swiper-slide"><img src="assets/lime_j3a3944.webp" alt="lime"></div>
+<div class="swiper-slide"><img src="assets/kiwi-delt.webp" alt="kiwi"></div>
+<div class="swiper-slide"><img src="assets/honning-melon-halv.webp" alt="honningmelondeltito"></div>  
+</div>
+    
+<div class="swiper-pagination"></div>
+<div class="swiper-button-prev"></div>
+<div class="swiper-button-next"></div>
+</div>
+
+<div class="swiper">
+<div class="swiper-wrapper">
+<div class="swiper-slide"><img src="assets/gul-kiwi_j3a3956.webp" alt="gulkiwi"></div>
+<div class="swiper-slide"><img src="assets/arielle-potet.webp" alt="potet"></div>
+<div class="swiper-slide"><img src="assets/cantaloupe-halv-langs.webp" alt="cantaloupemelondelt"></div>
+<div class="swiper-slide"><img src="assets/vannmelon-halv2.webp" alt="vannmelondeltito"></div>
+</div>
+    
+<div class="swiper-pagination"></div>
+<div class="swiper-button-prev"></div>
+<div class="swiper-button-next"></div> 
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script>
+    const swiper = new Swiper('.swiper', {
+ autoplay: {
+ delay: 3000,
+ disableOnInteraction: false,
+ loop: true,
+ },
+
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true, 
+  },
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+});
+
+</script>
+
+<div class="container">
+<div class="groceries">
+<h1 style="text-align: center;">Handleliste</h1>
+<div style="text-align: center;">
+<br>
+<i id="pencil" class="fas
+fa-regular fa-pencil"></i><input id="userInput"
+type="text">   
+</div>
+<br>
+<div id="allItems"></div>
+</div>
+<script>
+  
+  const groceries = document.getElementsByClassName
+("groceries")[0];
+const pencil = document.getElementById("pencil");
+const allItems = document.getElementById
+("allItems");
+const userInput = document.getElementById 
+("userInput");
+
+pencil.addEventListener("click", function(){
+    allItems.innerHTML = "";
+})
+
+userInput.addEventListener("keydown", function
+(event){
+    if(event.key == "Enter")
+    additem();
+})
+
+function additem(){
+    var h2 = document.createElement("h2");
+    h2.innerHTML = "- " + userInput.value;
+
+    h2.addEventListener("click", function(){
+    h2.style.textdecoration = "line-through";
+})
+
+allItems.insertAdjacentElement("beforeend", h2);
+
+userInput.value = "";
+}
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("demo");
+  let captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  
+}
+</script>
+<container2>
+<img src="./assets/np_Vegetables in display boxes_5qBnq4_free.jpg" alt="Gronnsakeribokserpamarked" style="width:600px;height:700px;">
+<footer>
+  <p>©2023 MIDDAGSPLANLEGGERN</p>
+</footer>
+</body>
+</html>
